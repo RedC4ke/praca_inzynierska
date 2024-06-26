@@ -1,0 +1,21 @@
+name: bucket_list
+packages:
+  - bucket_list
+scripts:
+  codegen:
+    run: >-
+      dart run build_runner build --delete-conflicting-outputs &&
+      fluttergen &&
+      dart pub global run intl_utils:generate
+
+  flutterfire:
+    run: >-
+      flutterfire configure 
+      --project=travelmateapp-dev
+      --account=mwyczarski@gmail.com
+      --platforms=ios,android 
+      -o "lib/firebase_options.dart" 
+      --yes 
+      -f
+      --android-package-name=com.redc4ke.travelmate
+      --ios-bundle-id=com.redc4ke.travelmate
