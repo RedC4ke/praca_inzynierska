@@ -1,6 +1,6 @@
-name: bucket_list
+name: travelmate
 packages:
-  - bucket_list
+  - travelmate
 scripts:
   codegen:
     run: >-
