@@ -24,6 +24,9 @@ class TmBottomAppBarItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              const SizedBox(
+                height: 2,
+              ),
               if (isActive)
                 const SizedBox(
                   height: 2,
@@ -41,6 +44,9 @@ class TmBottomAppBarItem extends StatelessWidget {
                     color: context.colorScheme.primary,
                   ),
                 ),
+              const SizedBox(
+                height: 2,
+              ),
             ],
           ),
         ),

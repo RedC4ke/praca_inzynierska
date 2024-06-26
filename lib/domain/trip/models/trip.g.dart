@@ -1,22 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'bucket_list.dart';
+part of 'trip.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-BucketList _$BucketListFromJson(Map<String, dynamic> json) => BucketList(
+Trip _$TripFromJson(Map<String, dynamic> json) => Trip(
       name: json['name'] as String,
+      ownerId: json['ownerId'] as String,
       description: json['description'] as String?,
       imageUrl: json['imageUrl'] as String?,
+      days: (json['days'] as List<dynamic>?)
+              ?.map((e) => TripDay.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BucketListToJson(BucketList instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$TripToJson(Trip instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'imageUrl': instance.imageUrl,
+      'days': instance.days,
+      'ownerId': instance.ownerId,
     };
