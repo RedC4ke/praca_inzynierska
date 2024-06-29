@@ -21,7 +21,6 @@ class CreateTripPage extends HookConsumerWidget {
     final formKey = useMemoized(GlobalKey<FormState>.new);
 
     final nameController = useTextEditingController();
-    final descriptionController = useTextEditingController();
 
     ref.listen(
       createTripControllerProvider,
@@ -33,7 +32,11 @@ class CreateTripPage extends HookConsumerWidget {
       ),
     );
 
-    void addTrip() {}
+    void addTrip() {
+      ref.read(createTripControllerProvider.notifier).createTrip(
+            nameController.text,
+          );
+    }
 
     return Stack(
       children: [
@@ -41,7 +44,7 @@ class CreateTripPage extends HookConsumerWidget {
           key: formKey,
           child: Scaffold(
             appBar: TmAppBar(
-              title: context.s.create_bucket_list,
+              title: context.s.create_trip,
               actions: [
                 IconButton(
                   icon: const FaIcon(FontAwesomeIcons.circlePlus),
@@ -74,15 +77,6 @@ class CreateTripPage extends HookConsumerWidget {
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                     ),
                     const SizedBox(height: 20),
-                    TextFormField(
-                      controller: descriptionController,
-                      decoration: InputDecoration(
-                        labelText: context.s.description,
-                      ),
-                      maxLines: 5,
-                      maxLength: Validators.descriptionMaxLenth,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                    ),
                   ],
                 ),
               ),

@@ -3,23 +3,23 @@ import 'package:travelmate/application/base/loadable_state.dart';
 import 'package:travelmate/domain/trip/models/trip.dart';
 import 'package:travelmate/domain/trip/trip_repository.dart';
 
-part 'create_trip_controller.g.dart';
+part 'trips_controller.g.dart';
 
 @riverpod
-class CreateTripController extends _$CreateTripController {
+class TripsController extends _$TripsController {
   @override
-  LoadableState<Trip> build() {
+  LoadableState<List<Trip>> build() {
+    loadTrips();
     return const LoadableState.initial();
   }
 
-  Future<void> createTrip(String tripName) async {
-    state = const LoadableState.loading();
-    final result =
-        await ref.read(tripRepositoryProvider).createTrip(tripName).run();
+  Future<void> loadTrips() async {
+    if (stateOrNull != null) state = const LoadableState.loading();
+    final result = await ref.read(tripRepositoryProvider).getTrips().run();
 
     result.fold(
       (error) => state = LoadableState.error(error),
-      (trip) => state = LoadableState.success(trip),
+      (trips) => state = LoadableState.success(trips),
     );
   }
 }

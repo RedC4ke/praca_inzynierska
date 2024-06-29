@@ -1,9 +1,8 @@
 {
     "@@locale": "en",
     "@_HOME": {},
-    "your_list": "Your list",
-    "items": "Completed items",
-    
+    "your_trips": "Your trips",
+    "no_trips": "You have no trips yet.",
     "@_COMMON": {},
     "cancel": "Cancel",
     "save": "Save",
@@ -37,14 +36,11 @@
     "err_password_dont_match": "The passwords are not the same",
     "err_wrong_number": "Invalid phone number",
     "err_location_denied_forever": "Location permissions not granted. To grant them, go to app settings.",
-    "@_ADD_BUCKET_LIST": {},
-    "create_bucket_list": "Create a new list",
+    "@_CREATE_TRIP": {},
+    "create_trip": "Plan a new trip",
     "name": "Name",
     "description": "Description",
     "create": "Create",
     "add_cover_image": "Add cover image",
-    "@_ADD_BUCKET_LIST_ITEM": {},
-    "choose_bucket_list": "Choose a list",
-    "add_bucket_list_item": "Add a new item",
     "add_location": "Add location"
 }

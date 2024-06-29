@@ -29,9 +29,6 @@ class TripStopLocation extends TripStop with EquatableMixin {
   factory TripStopLocation.fromJson(Map<String, dynamic> json) =>
       _$TripStopLocationFromJson(json);
 
-  @override
-  TripStop fromJson(Map<String, dynamic> json) =>
-      TripStopLocation.fromJson(json);
   final LocationType type;
   final Location location;
 

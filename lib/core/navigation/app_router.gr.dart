@@ -51,6 +51,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const TimelinePage(),
       );
     },
+    TripRoute.name: (routeData) {
+      final args = routeData.argsAs<TripRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: TripPage(
+          trip: args.trip,
+          key: args.key,
+        ),
+      );
+    },
   };
 }
 
@@ -136,4 +146,41 @@ class TimelineRoute extends PageRouteInfo<void> {
   static const String name = 'TimelineRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TripPage]
+class TripRoute extends PageRouteInfo<TripRouteArgs> {
+  TripRoute({
+    required Trip trip,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          TripRoute.name,
+          args: TripRouteArgs(
+            trip: trip,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'TripRoute';
+
+  static const PageInfo<TripRouteArgs> page = PageInfo<TripRouteArgs>(name);
+}
+
+class TripRouteArgs {
+  const TripRouteArgs({
+    required this.trip,
+    this.key,
+  });
+
+  final Trip trip;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'TripRouteArgs{trip: $trip, key: $key}';
+  }
 }

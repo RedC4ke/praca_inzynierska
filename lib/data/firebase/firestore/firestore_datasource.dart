@@ -57,8 +57,11 @@ class FirestoreDatasource {
         .doc(
           trip.id,
         )
-        .update(
+        .set(
           trip.toJson(),
+          SetOptions(
+            merge: true,
+          ),
         );
 
     return trip;

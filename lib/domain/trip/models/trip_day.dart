@@ -1,7 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:travelmate/domain/firestore/models/firestore_model.dart';
-import 'package:travelmate/domain/trip/models/trip_stop.dart';
+import 'package:travelmate/domain/trip/models/trip_stop_commute.dart';
+import 'package:travelmate/domain/trip/models/trip_stop_location.dart';
 
 part 'trip_day.g.dart';
 
@@ -11,7 +12,8 @@ class TripDay extends FirestoreModel with EquatableMixin {
     required this.description,
     required this.dayNumber,
     required this.date,
-    required this.stops,
+    required this.locations,
+    required this.commutes,
     super.id,
   });
 
@@ -21,7 +23,8 @@ class TripDay extends FirestoreModel with EquatableMixin {
   final String? description;
   final int dayNumber;
   final DateTime date;
-  final List<TripStop> stops;
+  final List<TripStopCommute> commutes;
+  final List<TripStopLocation> locations;
 
   Map<String, dynamic> toJson() => _$TripDayToJson(this);
 
@@ -31,17 +34,26 @@ class TripDay extends FirestoreModel with EquatableMixin {
     String? description,
     int? dayNumber,
     DateTime? date,
-    List<TripStop>? stops,
+    List<TripStopCommute>? commutes,
+    List<TripStopLocation>? locations,
   }) {
     return TripDay(
       id: id ?? this.id,
       description: description ?? this.description,
       dayNumber: dayNumber ?? this.dayNumber,
       date: date ?? this.date,
-      stops: stops ?? this.stops,
+      commutes: commutes ?? this.commutes,
+      locations: locations ?? this.locations,
     );
   }
 
   @override
-  List<Object?> get props => [id, description, dayNumber, date, stops];
+  List<Object?> get props => [
+        id,
+        description,
+        dayNumber,
+        date,
+        commutes,
+        locations,
+      ];
 }

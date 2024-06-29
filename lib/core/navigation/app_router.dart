@@ -1,12 +1,15 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:travelmate/domain/trip/models/trip.dart';
 import 'package:travelmate/features/dashboard/dashboard_page.dart';
 import 'package:travelmate/features/discover/discover_page.dart';
 import 'package:travelmate/features/home/home_page.dart';
 import 'package:travelmate/features/profile/profile_page.dart';
 import 'package:travelmate/features/timeline/timeline_page.dart';
 import 'package:travelmate/features/trip/create_trip_page.dart';
+import 'package:travelmate/features/trip/trip_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -27,5 +30,6 @@ class AppRouter extends _$AppRouter {
           ],
         ),
         AutoRoute(page: CreateTripRoute.page),
+        AutoRoute(page: TripRoute.page),
       ];
 }

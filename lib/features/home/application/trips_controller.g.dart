@@ -1,27 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'create_trip_controller.dart';
+part of 'trips_controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$createTripControllerHash() =>
-    r'660e12db4017e3e86d5e57e355a950fc8f551473';
+String _$tripsControllerHash() => r'ce9af76e8af45a3f9dd268840ddc9b45d68092ec';
 
-/// See also [CreateTripController].
-@ProviderFor(CreateTripController)
-final createTripControllerProvider = AutoDisposeNotifierProvider<
-    CreateTripController, LoadableState<Trip>>.internal(
-  CreateTripController.new,
-  name: r'createTripControllerProvider',
+/// See also [TripsController].
+@ProviderFor(TripsController)
+final tripsControllerProvider = AutoDisposeNotifierProvider<TripsController,
+    LoadableState<List<Trip>>>.internal(
+  TripsController.new,
+  name: r'tripsControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$createTripControllerHash,
+      : _$tripsControllerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$CreateTripController = AutoDisposeNotifier<LoadableState<Trip>>;
+typedef _$TripsController = AutoDisposeNotifier<LoadableState<List<Trip>>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

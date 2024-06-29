@@ -50,21 +50,21 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Your list`
-  String get your_list {
+  /// `Your trips`
+  String get your_trips {
     return Intl.message(
-      'Your list',
-      name: 'your_list',
+      'Your trips',
+      name: 'your_trips',
       desc: '',
       args: [],
     );
   }
 
-  /// `Completed items`
-  String get items {
+  /// `You have no trips yet.`
+  String get no_trips {
     return Intl.message(
-      'Completed items',
-      name: 'items',
+      'You have no trips yet.',
+      name: 'no_trips',
       desc: '',
       args: [],
     );
@@ -380,11 +380,11 @@ class S {
     );
   }
 
-  /// `Create a new list`
-  String get create_bucket_list {
+  /// `Plan a new trip`
+  String get create_trip {
     return Intl.message(
-      'Create a new list',
-      name: 'create_bucket_list',
+      'Plan a new trip',
+      name: 'create_trip',
       desc: '',
       args: [],
     );
@@ -425,26 +425,6 @@ class S {
     return Intl.message(
       'Add cover image',
       name: 'add_cover_image',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Choose a list`
-  String get choose_bucket_list {
-    return Intl.message(
-      'Choose a list',
-      name: 'choose_bucket_list',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Add a new item`
-  String get add_bucket_list_item {
-    return Intl.message(
-      'Add a new item',
-      name: 'add_bucket_list_item',
       desc: '',
       args: [],
     );
