@@ -15,6 +15,16 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AddDayRoute.name: (routeData) {
+      final args = routeData.argsAs<AddDayRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AddDayPage(
+          trip: args.trip,
+          key: args.key,
+        ),
+      );
+    },
     CreateTripRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -62,6 +72,43 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AddDayPage]
+class AddDayRoute extends PageRouteInfo<AddDayRouteArgs> {
+  AddDayRoute({
+    required Trip trip,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AddDayRoute.name,
+          args: AddDayRouteArgs(
+            trip: trip,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AddDayRoute';
+
+  static const PageInfo<AddDayRouteArgs> page = PageInfo<AddDayRouteArgs>(name);
+}
+
+class AddDayRouteArgs {
+  const AddDayRouteArgs({
+    required this.trip,
+    this.key,
+  });
+
+  final Trip trip;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AddDayRouteArgs{trip: $trip, key: $key}';
+  }
 }
 
 /// generated route for

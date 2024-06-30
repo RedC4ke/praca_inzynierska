@@ -42,5 +42,10 @@
     "description": "Description",
     "create": "Create",
     "add_cover_image": "Add cover image",
-    "add_location": "Add location"
+    "add_location": "Add location",
+    "@_TRIP": {},
+    "no_days": "This trip has no days yet.",
+    "@_ADD_DAY": {},
+    "date": "Date",
+    "add_day": "Add a new trip day"
 }

@@ -35,6 +35,8 @@ abstract class TmTheme {
     iconButtonTheme: IconButtonThemeData(
       style: IconButton.styleFrom(
         foregroundColor: TmColors.primaryBase,
+        padding: const EdgeInsets.all(12),
+        shape: const CircleBorder(),
       ),
     ),
   );

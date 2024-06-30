@@ -21,6 +21,6 @@ Map<String, dynamic> _$TripToJson(Trip instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'imageUrl': instance.imageUrl,
-      'days': instance.days,
+      'days': instance.days.map((e) => e.toJson()).toList(),
       'ownerId': instance.ownerId,
     };

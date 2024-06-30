@@ -20,7 +20,7 @@ AutocompleteResponse _$AutocompleteResponseFromJson(
 Map<String, dynamic> _$AutocompleteResponseToJson(
         AutocompleteResponse instance) =>
     <String, dynamic>{
-      'predictions': instance.predictions,
+      'predictions': instance.predictions.map((e) => e.toJson()).toList(),
       'status': _$AutocompleteStatusEnumMap[instance.status]!,
       'errorMessage': instance.errorMessage,
     };

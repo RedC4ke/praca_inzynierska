@@ -10,6 +10,8 @@ TripStopCommute _$TripStopCommuteFromJson(Map<String, dynamic> json) =>
     TripStopCommute(
       type: $enumDecode(_$CommuteTypeEnumMap, json['type']),
       time: DateTime.parse(json['time'] as String),
+      from: Location.fromJson(json['from'] as Map<String, dynamic>),
+      to: Location.fromJson(json['to'] as Map<String, dynamic>),
       durationMinutes: (json['durationMinutes'] as num?)?.toInt(),
       featured: json['featured'] as bool? ?? false,
       id: json['id'] as String?,
@@ -22,6 +24,8 @@ Map<String, dynamic> _$TripStopCommuteToJson(TripStopCommute instance) =>
       'durationMinutes': instance.durationMinutes,
       'featured': instance.featured,
       'type': _$CommuteTypeEnumMap[instance.type]!,
+      'from': instance.from.toJson(),
+      'to': instance.to.toJson(),
     };
 
 const _$CommuteTypeEnumMap = {

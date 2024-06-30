@@ -5,7 +5,7 @@ import 'package:travelmate/domain/trip/models/trip_day.dart';
 
 part 'trip.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Trip extends FirestoreModel with EquatableMixin {
   Trip({
     required this.name,

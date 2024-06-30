@@ -439,6 +439,36 @@ class S {
       args: [],
     );
   }
+
+  /// `This trip has no days yet.`
+  String get no_days {
+    return Intl.message(
+      'This trip has no days yet.',
+      name: 'no_days',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a new trip day`
+  String get add_day {
+    return Intl.message(
+      'Add a new trip day',
+      name: 'add_day',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

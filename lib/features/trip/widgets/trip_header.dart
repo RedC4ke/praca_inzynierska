@@ -12,18 +12,26 @@ class TripHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        TripCover(
-          imageUrl: trip.imageUrl,
-        ),
-        const SizedBox(width: 8),
-        const Expanded(
-          child: Column(
-            children: [],
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 16,
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: TripCover(
+              imageUrl: trip.imageUrl,
+            ),
           ),
-        ),
-      ],
+          const SizedBox(width: 16),
+          const Expanded(
+            child: Column(
+              children: [],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

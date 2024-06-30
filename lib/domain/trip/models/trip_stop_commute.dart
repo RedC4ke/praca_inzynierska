@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:travelmate/domain/trip/models/location.dart';
 import 'package:travelmate/domain/trip/models/trip_stop.dart';
 
 part 'trip_stop_commute.g.dart';
@@ -21,6 +22,8 @@ class TripStopCommute extends TripStop with EquatableMixin {
   TripStopCommute({
     required this.type,
     required super.time,
+    required this.from,
+    required this.to,
     super.durationMinutes,
     super.featured = false,
     super.id,
@@ -30,6 +33,8 @@ class TripStopCommute extends TripStop with EquatableMixin {
       _$TripStopCommuteFromJson(json);
 
   final CommuteType type;
+  final Location from;
+  final Location to;
 
   @override
   IconData get icon {
@@ -61,6 +66,8 @@ class TripStopCommute extends TripStop with EquatableMixin {
     int? durationMinutes,
     bool? featured,
     CommuteType? type,
+    Location? from,
+    Location? to,
   }) {
     return TripStopCommute(
       id: id ?? this.id,
@@ -68,9 +75,19 @@ class TripStopCommute extends TripStop with EquatableMixin {
       durationMinutes: durationMinutes ?? this.durationMinutes,
       featured: featured ?? this.featured,
       type: type ?? this.type,
+      from: from ?? this.from,
+      to: to ?? this.to,
     );
   }
 
   @override
-  List<Object?> get props => [id, time, durationMinutes, featured, type];
+  List<Object?> get props => [
+        id,
+        time,
+        durationMinutes,
+        featured,
+        type,
+        from,
+        to,
+      ];
 }

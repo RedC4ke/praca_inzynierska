@@ -7,7 +7,6 @@ import 'package:travelmate/domain/trip/models/trip.dart';
 final firestoreDatasourceProvider = Provider((ref) => FirestoreDatasource());
 
 abstract class _Collection {
-  static const users = 'users';
   static const trips = 'trips';
 }
 
@@ -15,10 +14,7 @@ class FirestoreDatasource {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  String get _userId => _auth.currentUser!.uid;
-  DocumentReference get _userDoc => _db.collection(_Collection.users).doc(
-        _userId,
-      );
+  String get _userId => _auth.currentUser?.uid ?? '';
 
   Future<Trip> createTrip(Trip trip) async {
     final ref = await _db.collection(_Collection.trips).add(

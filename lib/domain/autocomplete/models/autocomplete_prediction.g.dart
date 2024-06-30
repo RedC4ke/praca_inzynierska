@@ -29,8 +29,9 @@ Map<String, dynamic> _$AutocompletePredictionToJson(
         AutocompletePrediction instance) =>
     <String, dynamic>{
       'description': instance.description,
-      'matchedSubstrings': instance.matchedSubstrings,
-      'structuredFormatting': instance.structuredFormatting,
+      'matchedSubstrings':
+          instance.matchedSubstrings.map((e) => e.toJson()).toList(),
+      'structuredFormatting': instance.structuredFormatting?.toJson(),
       'placeId': instance.placeId,
       'types': instance.types,
     };

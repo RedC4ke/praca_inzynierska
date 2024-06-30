@@ -22,4 +22,18 @@ class TripsController extends _$TripsController {
       (trips) => state = LoadableState.success(trips),
     );
   }
+
+  void onTripChanged(Trip trip) {
+    state.maybeWhen(
+      success: (trips) {
+        final index = trips.indexWhere((element) => element.id == trip.id);
+        if (index != -1) {
+          final newTrips = List<Trip>.from(trips);
+          newTrips[index] = trip;
+          state = LoadableState.success(newTrips);
+        }
+      },
+      orElse: () {},
+    );
+  }
 }

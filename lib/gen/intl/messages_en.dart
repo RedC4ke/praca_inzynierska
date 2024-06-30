@@ -27,11 +27,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_cover_image":
             MessageLookupByLibrary.simpleMessage("Add cover image"),
+        "add_day": MessageLookupByLibrary.simpleMessage("Add a new trip day"),
         "add_location": MessageLookupByLibrary.simpleMessage("Add location"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "create": MessageLookupByLibrary.simpleMessage("Create"),
         "create_trip": MessageLookupByLibrary.simpleMessage("Plan a new trip"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
@@ -77,6 +79,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("The passwords do not match."),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "no_data": MessageLookupByLibrary.simpleMessage("No data"),
+        "no_days":
+            MessageLookupByLibrary.simpleMessage("This trip has no days yet."),
         "no_results": MessageLookupByLibrary.simpleMessage("No results"),
         "no_trips":
             MessageLookupByLibrary.simpleMessage("You have no trips yet."),

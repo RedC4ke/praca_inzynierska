@@ -27,7 +27,10 @@ Map<String, dynamic> _$AutocompleteStructuredFormatToJson(
         AutocompleteStructuredFormat instance) =>
     <String, dynamic>{
       'mainText': instance.mainText,
-      'mainTextMatchedSubstrings': instance.mainTextMatchedSubstrings,
+      'mainTextMatchedSubstrings':
+          instance.mainTextMatchedSubstrings.map((e) => e.toJson()).toList(),
       'secondaryText': instance.secondaryText,
-      'secondaryTextMatchedSubstrings': instance.secondaryTextMatchedSubstrings,
+      'secondaryTextMatchedSubstrings': instance.secondaryTextMatchedSubstrings
+          .map((e) => e.toJson())
+          .toList(),
     };

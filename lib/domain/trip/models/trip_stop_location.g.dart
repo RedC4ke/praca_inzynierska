@@ -23,7 +23,7 @@ Map<String, dynamic> _$TripStopLocationToJson(TripStopLocation instance) =>
       'durationMinutes': instance.durationMinutes,
       'featured': instance.featured,
       'type': _$LocationTypeEnumMap[instance.type]!,
-      'location': instance.location,
+      'location': instance.location.toJson(),
     };
 
 const _$LocationTypeEnumMap = {

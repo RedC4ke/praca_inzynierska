@@ -39,6 +39,7 @@ android {
     defaultConfig {
         applicationId = "com.redc4ke.travelmate"
         minSdk = 23
+        ndkVersion "26.1.10909125"
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
