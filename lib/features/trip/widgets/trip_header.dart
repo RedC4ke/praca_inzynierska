@@ -26,9 +26,7 @@ class TripHeader extends StatelessWidget {
           ),
           const SizedBox(width: 16),
           const Expanded(
-            child: Column(
-              children: [],
-            ),
+            child: Column(),
           ),
         ],
       ),

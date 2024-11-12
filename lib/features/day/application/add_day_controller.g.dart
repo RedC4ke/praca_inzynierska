@@ -6,7 +6,7 @@ part of 'add_day_controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$addDayControllerHash() => r'd6091dc9d9acbe5a9803cdb5be7158fbaadb4310';
+String _$addDayControllerHash() => r'1da24f2799323f8aae6e6788f2043434c523debd';
 
 /// Copied from Dart SDK
 class _SystemHash {

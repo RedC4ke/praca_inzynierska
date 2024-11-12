@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:travelmate/domain/trip/models/trip.dart';
+import 'package:travelmate/domain/trip/models/trip_day.dart';
 import 'package:travelmate/features/dashboard/dashboard_page.dart';
 import 'package:travelmate/features/day/add_day_page.dart';
+import 'package:travelmate/features/day/day_page.dart';
 import 'package:travelmate/features/discover/discover_page.dart';
 import 'package:travelmate/features/home/home_page.dart';
 import 'package:travelmate/features/profile/profile_page.dart';
@@ -17,7 +19,7 @@ part 'app_router.gr.dart';
 final appRouterProvider = Provider((ref) => AppRouter());
 
 @AutoRouterConfig()
-class AppRouter extends _$AppRouter {
+class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(

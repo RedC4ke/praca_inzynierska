@@ -9,71 +9,6 @@
 
 part of 'app_router.dart';
 
-abstract class _$AppRouter extends RootStackRouter {
-  // ignore: unused_element
-  _$AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    AddDayRoute.name: (routeData) {
-      final args = routeData.argsAs<AddDayRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: AddDayPage(
-          trip: args.trip,
-          key: args.key,
-        ),
-      );
-    },
-    CreateTripRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const CreateTripPage(),
-      );
-    },
-    DashboardRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const DashboardPage(),
-      );
-    },
-    DiscoverRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const DiscoverPage(),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const HomePage(),
-      );
-    },
-    ProfileRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const ProfilePage(),
-      );
-    },
-    TimelineRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const TimelinePage(),
-      );
-    },
-    TripRoute.name: (routeData) {
-      final args = routeData.argsAs<TripRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: TripPage(
-          trip: args.trip,
-          key: args.key,
-        ),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [AddDayPage]
 class AddDayRoute extends PageRouteInfo<AddDayRouteArgs> {
@@ -92,7 +27,16 @@ class AddDayRoute extends PageRouteInfo<AddDayRouteArgs> {
 
   static const String name = 'AddDayRoute';
 
-  static const PageInfo<AddDayRouteArgs> page = PageInfo<AddDayRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AddDayRouteArgs>();
+      return AddDayPage(
+        trip: args.trip,
+        key: args.key,
+      );
+    },
+  );
 }
 
 class AddDayRouteArgs {
@@ -122,7 +66,12 @@ class CreateTripRoute extends PageRouteInfo<void> {
 
   static const String name = 'CreateTripRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const CreateTripPage();
+    },
+  );
 }
 
 /// generated route for
@@ -136,7 +85,58 @@ class DashboardRoute extends PageRouteInfo<void> {
 
   static const String name = 'DashboardRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const DashboardPage();
+    },
+  );
+}
+
+/// generated route for
+/// [DayPage]
+class DayRoute extends PageRouteInfo<DayRouteArgs> {
+  DayRoute({
+    required TripDay tripDay,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DayRoute.name,
+          args: DayRouteArgs(
+            tripDay: tripDay,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DayRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<DayRouteArgs>();
+      return DayPage(
+        tripDay: args.tripDay,
+        key: args.key,
+      );
+    },
+  );
+}
+
+class DayRouteArgs {
+  const DayRouteArgs({
+    required this.tripDay,
+    this.key,
+  });
+
+  final TripDay tripDay;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'DayRouteArgs{tripDay: $tripDay, key: $key}';
+  }
 }
 
 /// generated route for
@@ -150,7 +150,12 @@ class DiscoverRoute extends PageRouteInfo<void> {
 
   static const String name = 'DiscoverRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const DiscoverPage();
+    },
+  );
 }
 
 /// generated route for
@@ -164,7 +169,12 @@ class HomeRoute extends PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const HomePage();
+    },
+  );
 }
 
 /// generated route for
@@ -178,7 +188,12 @@ class ProfileRoute extends PageRouteInfo<void> {
 
   static const String name = 'ProfileRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ProfilePage();
+    },
+  );
 }
 
 /// generated route for
@@ -192,7 +207,12 @@ class TimelineRoute extends PageRouteInfo<void> {
 
   static const String name = 'TimelineRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const TimelinePage();
+    },
+  );
 }
 
 /// generated route for
@@ -213,7 +233,16 @@ class TripRoute extends PageRouteInfo<TripRouteArgs> {
 
   static const String name = 'TripRoute';
 
-  static const PageInfo<TripRouteArgs> page = PageInfo<TripRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<TripRouteArgs>();
+      return TripPage(
+        trip: args.trip,
+        key: args.key,
+      );
+    },
+  );
 }
 
 class TripRouteArgs {
