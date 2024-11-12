@@ -1,6 +1,8 @@
 name: travelmate
+
 packages:
-  - travelmate
+  - ./
+
 scripts:
   codegen:
     run: >-

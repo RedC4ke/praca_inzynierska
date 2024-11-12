@@ -57,8 +57,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  
   assets:
     - assets/fonts/
+
   fonts:
     - family: Inter
       fonts:
