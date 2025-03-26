@@ -9,17 +9,17 @@ part 'create_trip_controller.g.dart';
 class CreateTripController extends _$CreateTripController {
   @override
   LoadableState<Trip> build() {
-    return const LoadableState.initial();
+    return const Initial();
   }
 
   Future<void> createTrip(String tripName) async {
-    state = const LoadableState.loading();
+    state = const Loading();
     final result =
         await ref.read(tripRepositoryProvider).createTrip(tripName).run();
 
     result.fold(
-      (error) => state = LoadableState.error(error),
-      (trip) => state = LoadableState.success(trip),
+      (error) => state = Error(error),
+      (trip) => state = Success(trip),
     );
   }
 }

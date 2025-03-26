@@ -7,7 +7,7 @@ part of 'create_trip_controller.dart';
 // **************************************************************************
 
 String _$createTripControllerHash() =>
-    r'660e12db4017e3e86d5e57e355a950fc8f551473';
+    r'3a2dfb1ed04ad8dfd552c0a9bef7e0def7aa03ae';
 
 /// See also [CreateTripController].
 @ProviderFor(CreateTripController)
@@ -24,4 +24,4 @@ final createTripControllerProvider = AutoDisposeNotifierProvider<
 
 typedef _$CreateTripController = AutoDisposeNotifier<LoadableState<Trip>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

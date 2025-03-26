@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:travelmate/core/theme/tm_color_scheme.dart';
 import 'package:travelmate/gen/l10n.dart';
 
 extension XBuildContext on BuildContext {
@@ -20,4 +21,8 @@ extension XDateTime on DateTime {
   String ddMMyyyy() {
     return DateFormat('dd.MM.yyyy').format(this);
   }
+}
+
+extension XColorScheme on ColorScheme {
+  ExtendedColor get custom1 => TmColorScheme.customColor1;
 }

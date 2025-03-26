@@ -23,6 +23,10 @@ class TmAppBar extends StatelessWidget implements PreferredSizeWidget {
         ...actions,
         const SizedBox(width: 6),
       ],
+      bottom: const PreferredSize(
+        preferredSize: Size.fromHeight(1),
+        child: Divider(),
+      ),
     );
   }
 }

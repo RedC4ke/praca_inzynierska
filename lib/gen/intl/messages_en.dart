@@ -28,14 +28,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_cover_image":
             MessageLookupByLibrary.simpleMessage("Add cover image"),
         "add_day": MessageLookupByLibrary.simpleMessage("Add a new trip day"),
-        "add_location": MessageLookupByLibrary.simpleMessage("Add location"),
+        "app_name": MessageLookupByLibrary.simpleMessage("TravelMate"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "create": MessageLookupByLibrary.simpleMessage("Create"),
-        "create_trip": MessageLookupByLibrary.simpleMessage("Plan a new trip"),
+        "create_trip_title":
+            MessageLookupByLibrary.simpleMessage("Create a new trip!"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
+        "destination": MessageLookupByLibrary.simpleMessage("Destination"),
+        "destination_hint":
+            MessageLookupByLibrary.simpleMessage("Paris, France, Europe..."),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "err_account_exists_with_different_credential":
             MessageLookupByLibrary.simpleMessage(
@@ -78,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "err_wrong_repeated_password":
             MessageLookupByLibrary.simpleMessage("The passwords do not match."),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "name_hint": MessageLookupByLibrary.simpleMessage("My awesome trip"),
         "no_data": MessageLookupByLibrary.simpleMessage("No data"),
         "no_days":
             MessageLookupByLibrary.simpleMessage("This trip has no days yet."),
@@ -88,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saved": MessageLookupByLibrary.simpleMessage("Saved"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "start_date": MessageLookupByLibrary.simpleMessage("Start date"),
         "your_trips": MessageLookupByLibrary.simpleMessage("Your trips")
       };
 }

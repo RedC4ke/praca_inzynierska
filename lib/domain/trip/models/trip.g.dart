@@ -9,11 +9,11 @@ part of 'trip.dart';
 Trip _$TripFromJson(Map<String, dynamic> json) => Trip(
       name: json['name'] as String,
       ownerId: json['ownerId'] as String,
-      imageUrl: json['imageUrl'] as String?,
-      days: (json['days'] as List<dynamic>?)
-              ?.map((e) => TripDay.fromJson(e as Map<String, dynamic>))
+      sharedWith: (json['sharedWith'] as List<dynamic>?)
+              ?.map((e) => e as String)
               .toList() ??
-          const [],
+          [],
+      imageUrl: json['imageUrl'] as String?,
       id: json['id'] as String?,
     );
 
@@ -21,6 +21,6 @@ Map<String, dynamic> _$TripToJson(Trip instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'imageUrl': instance.imageUrl,
-      'days': instance.days.map((e) => e.toJson()).toList(),
       'ownerId': instance.ownerId,
+      'sharedWith': instance.sharedWith,
     };

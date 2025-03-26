@@ -9,11 +9,7 @@ part of 'google_maps_datasource.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _GoogleMapsDatasource implements GoogleMapsDatasource {
-  _GoogleMapsDatasource(
-    this._dio, {
-    this.baseUrl,
-    this.errorLogger,
-  });
+  _GoogleMapsDatasource(this._dio, {this.baseUrl, this.errorLogger});
 
   final Dio _dio;
 
@@ -22,37 +18,24 @@ class _GoogleMapsDatasource implements GoogleMapsDatasource {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<AutocompleteResponse> getAutocomplete(
-    String input,
-    String language,
-    String sessionToken,
-    String key,
-  ) async {
+  Future<AutocompleteResponse> getAutocomplete({
+    required AutocompleteQuery query,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'input': input,
-      r'language': language,
-      r'sessiontoken': sessionToken,
-      r'key': key,
-    };
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<AutocompleteResponse>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/place/autocomplete/json',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
+    final _data = <String, dynamic>{};
+    _data.addAll(query.toJson());
+    final _options = _setStreamType<AutocompleteResponse>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            ':autocomplete',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late AutocompleteResponse _value;
     try {
@@ -65,42 +48,31 @@ class _GoogleMapsDatasource implements GoogleMapsDatasource {
   }
 
   @override
-  Future<String> getPlaceDetails(
-    String placeId,
-    String key,
-  ) async {
+  Future<void> getPlaceDetails({
+    required String fieldMask,
+    required String id,
+    required String languageCode,
+    required String sessionToken,
+  }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'place_id': placeId,
-      r'key': key,
+      r'languageCode': languageCode,
+      r'sessionToken': sessionToken,
     };
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'X-Goog-FieldMask': fieldMask};
+    _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<String>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/place/details/json',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<String>(_options);
-    late String _value;
-    try {
-      _value = _result.data!;
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
+    final _options = _setStreamType<void>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/${id}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
@@ -116,10 +88,7 @@ class _GoogleMapsDatasource implements GoogleMapsDatasource {
     return requestOptions;
   }
 
-  String _combineBaseUrls(
-    String dioBaseUrl,
-    String? baseUrl,
-  ) {
+  String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
     }

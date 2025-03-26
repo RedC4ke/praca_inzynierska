@@ -12,7 +12,7 @@ class TmLoading extends StatelessWidget {
       child: ColoredBox(
         color: transparent
             ? Colors.transparent
-            : context.colorScheme.surface.withOpacity(0.45),
+            : context.colorScheme.surface.withValues(alpha: 0.45),
         child: const Center(
           child: SizedBox(
             width: 64,

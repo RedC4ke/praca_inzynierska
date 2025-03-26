@@ -7,7 +7,7 @@ part of 'autocomplete_controller.dart';
 // **************************************************************************
 
 String _$autocompleteControllerHash() =>
-    r'd61948c9c2c00b8d00917d1c0d77e89c675646bf';
+    r'314dfcba310a84f4ee7dce6ccf2a068636574eb2';
 
 /// See also [AutocompleteController].
 @ProviderFor(AutocompleteController)
@@ -25,4 +25,4 @@ final autocompleteControllerProvider = AutoDisposeNotifierProvider<
 typedef _$AutocompleteController
     = AutoDisposeNotifier<AsyncState<AutocompleteResponse>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

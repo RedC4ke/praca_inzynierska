@@ -44,11 +44,20 @@ class TmBottomAppBar extends StatelessWidget {
         horizontal: 24,
       ),
       child: BottomAppBar(
+        color: Colors.transparent,
         height: height,
         padding: EdgeInsets.zero,
         child: Container(
           decoration: BoxDecoration(
-            color: context.colorScheme.surface,
+            // gradient: LinearGradient(
+            //   colors: [
+            //     Theme.of(context).colorScheme.primaryContainer,
+            //     Theme.of(context).colorScheme.surface,
+            //   ],
+            //   begin: Alignment.topCenter,
+            //   end: Alignment.bottomCenter,
+            // ),
+            color: context.colorScheme.primaryContainer,
             borderRadius: BorderRadius.circular(height / 4),
             boxShadow: TmDecorations.shadowMedium,
           ),

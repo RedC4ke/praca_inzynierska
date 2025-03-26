@@ -1,12 +1,38 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
 import 'package:travelmate/domain/error/models/failure.dart';
 
-part 'loadable_state.freezed.dart';
+sealed class LoadableState<T> extends Equatable {
+  const LoadableState();
+}
 
-@freezed
-class LoadableState<T> with _$LoadableState<T> {
-  const factory LoadableState.initial() = _Initial<T>;
-  const factory LoadableState.loading() = _Loading<T>;
-  const factory LoadableState.success(T data) = _Success<T>;
-  const factory LoadableState.error(Failure failure) = _Error<T>;
+class Initial<T> extends LoadableState<T> {
+  const Initial();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class Loading<T> extends LoadableState<T> {
+  const Loading();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class Success<T> extends LoadableState<T> {
+  const Success(this.data);
+
+  final T data;
+
+  @override
+  List<Object?> get props => [data];
+}
+
+class Error<T> extends LoadableState<T> {
+  const Error(this.failure);
+
+  final Failure failure;
+
+  @override
+  List<Object?> get props => [failure];
 }

@@ -5,9 +5,11 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
 
 # IntelliJ related
@@ -46,3 +48,6 @@ app.*.map.json
 **/firebase_options.dart
 **/GoogleService-Info.plist
 **/google-services.json
+
+# FVM Version Cache
+.fvm/

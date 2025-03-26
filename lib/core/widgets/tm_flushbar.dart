@@ -5,6 +5,7 @@ import 'package:travelmate/core/theme/tm_colors.dart';
 const Duration _duration = Duration(seconds: 3);
 const Duration _animationDuration = Duration(milliseconds: 300);
 
+//
 // ignore: must_be_immutable
 class TmFlushbar extends Flushbar<void> {
   TmFlushbar({

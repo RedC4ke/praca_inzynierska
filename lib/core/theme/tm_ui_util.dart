@@ -10,7 +10,7 @@ class CenteredBeveledFABLocation implements FloatingActionButtonLocation {
         2;
     final fabY = scaffoldGeometry.contentBottom -
         scaffoldGeometry.floatingActionButtonSize.height / 2 +
-        12;
+        30;
     return Offset(fabX, fabY);
   }
 

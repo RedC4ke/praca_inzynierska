@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:travelmate/core/utils/extensions.dart';
 import 'package:travelmate/core/utils/regex_patterns.dart';
+import 'package:travelmate/domain/error/models/autocomplete_prediction.dart';
 import 'package:travelmate/gen/l10n.dart';
 
 abstract class Validators {
@@ -151,6 +152,19 @@ abstract class Validators {
 
     if (text != password) {
       return s.err_password_dont_match;
+    }
+
+    return null;
+  }
+
+  static String? validateLocation(
+    BuildContext context,
+    AutocompletePrediction? value,
+  ) {
+    final s = S.of(context);
+
+    if (value == null) {
+      return s.err_empty_field;
     }
 
     return null;

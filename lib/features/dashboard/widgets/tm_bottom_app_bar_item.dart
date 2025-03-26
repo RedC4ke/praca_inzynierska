@@ -33,7 +33,7 @@ class TmBottomAppBarItem extends StatelessWidget {
                 ),
               FaIcon(
                 icon,
-                color: context.colorScheme.onSurface,
+                color: context.colorScheme.onPrimaryContainer,
               ),
               if (isActive)
                 Container(
@@ -41,11 +41,11 @@ class TmBottomAppBarItem extends StatelessWidget {
                   width: 12,
                   decoration: ShapeDecoration(
                     shape: const StadiumBorder(),
-                    color: context.colorScheme.primary,
+                    color: context.colorScheme.custom1.value,
                   ),
                 ),
               const SizedBox(
-                height: 2,
+                height: 6,
               ),
             ],
           ),

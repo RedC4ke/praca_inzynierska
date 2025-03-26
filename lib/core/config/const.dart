@@ -1,3 +1,3 @@
 abstract class Const {
-  static const googleMapsURL = 'https://maps.googleapis.com/maps/api';
+  static const placesApiUrl = 'https://places.googleapis.com/v1/places';
 }

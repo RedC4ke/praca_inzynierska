@@ -10,15 +10,19 @@ abstract class Listeners {
     LoadableState<dynamic> next, {
     bool popOnSuccess = true,
   }) {
-    next.maybeWhen(
-      success: (data) {
-        if (popOnSuccess) {
-          Navigator.of(context).pop(data);
+    switch (next) {
+      case Success(:final data):
+        {
+          if (popOnSuccess) {
+            Navigator.of(context).pop(data);
+          }
+          TmFlushbar.success(content: successMessage).showWithContext(context);
         }
-        TmFlushbar.success(content: successMessage).showWithContext(context);
-      },
-      error: (error) => TmFlushbar.error(content: error.message),
-      orElse: () {},
-    );
+      case Error(:final failure):
+        {
+          TmFlushbar.error(content: failure.message).showWithContext(context);
+        }
+      default:
+    }
   }
 }

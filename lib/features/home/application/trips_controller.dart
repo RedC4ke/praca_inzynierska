@@ -10,30 +10,42 @@ class TripsController extends _$TripsController {
   @override
   LoadableState<List<Trip>> build() {
     loadTrips();
-    return const LoadableState.initial();
+    return const Initial();
   }
 
   Future<void> loadTrips() async {
-    if (stateOrNull != null) state = const LoadableState.loading();
+    if (stateOrNull != null) state = const Loading();
     final result = await ref.read(tripRepositoryProvider).getTrips().run();
 
     result.fold(
-      (error) => state = LoadableState.error(error),
-      (trips) => state = LoadableState.success(trips),
+      (error) => state = Error(error),
+      (trips) => state = Success(trips),
     );
   }
 
   void onTripChanged(Trip trip) {
-    state.maybeWhen(
-      success: (trips) {
-        final index = trips.indexWhere((element) => element.id == trip.id);
+    // state.maybeWhen(
+    //   success: (trips) {
+    //     final index = trips.indexWhere((element) => element.id == trip.id);
+    //     if (index != -1) {
+    //       final newTrips = List<Trip>.from(trips);
+    //       newTrips[index] = trip;
+    //       state = LoadableState.success(newTrips);
+    //     }
+    //   },
+    //   orElse: () {},
+    // );
+
+    switch (state) {
+      case Success(:final data):
+        final index = data.indexWhere((element) => element.id == trip.id);
         if (index != -1) {
-          final newTrips = List<Trip>.from(trips);
+          final newTrips = List<Trip>.from(data);
           newTrips[index] = trip;
-          state = LoadableState.success(newTrips);
+          state = Success(newTrips);
         }
-      },
-      orElse: () {},
-    );
+      default:
+        break;
+    }
   }
 }

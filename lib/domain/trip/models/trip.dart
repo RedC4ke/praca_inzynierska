@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:travelmate/domain/firestore/models/firestore_model.dart';
-import 'package:travelmate/domain/trip/models/trip_day.dart';
 
 part 'trip.g.dart';
 
@@ -10,8 +9,8 @@ class Trip extends FirestoreModel with EquatableMixin {
   Trip({
     required this.name,
     required this.ownerId,
+    this.sharedWith = const [],
     this.imageUrl,
-    this.days = const [],
     super.id,
   });
 
@@ -19,8 +18,9 @@ class Trip extends FirestoreModel with EquatableMixin {
 
   final String name;
   final String? imageUrl;
-  final List<TripDay> days;
   final String ownerId;
+  @JsonKey(defaultValue: [])
+  final List<String> sharedWith;
 
   Map<String, dynamic> toJson() => _$TripToJson(this);
 
@@ -29,14 +29,14 @@ class Trip extends FirestoreModel with EquatableMixin {
     String? id,
     String? name,
     String? imageUrl,
-    List<TripDay>? days,
+    List<String>? sharedWith,
     String? ownerId,
   }) {
     return Trip(
       id: id ?? this.id,
       name: name ?? this.name,
       imageUrl: imageUrl ?? this.imageUrl,
-      days: days ?? this.days,
+      sharedWith: sharedWith ?? this.sharedWith,
       ownerId: ownerId ?? this.ownerId,
     );
   }
@@ -46,7 +46,7 @@ class Trip extends FirestoreModel with EquatableMixin {
         id,
         name,
         imageUrl,
-        days,
+        sharedWith,
         ownerId,
       ];
 }

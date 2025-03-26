@@ -50,6 +50,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `TravelMate`
+  String get app_name {
+    return Intl.message(
+      'TravelMate',
+      name: 'app_name',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Your trips`
   String get your_trips {
     return Intl.message(
@@ -380,11 +390,11 @@ class S {
     );
   }
 
-  /// `Plan a new trip`
-  String get create_trip {
+  /// `Create a new trip!`
+  String get create_trip_title {
     return Intl.message(
-      'Plan a new trip',
-      name: 'create_trip',
+      'Create a new trip!',
+      name: 'create_trip_title',
       desc: '',
       args: [],
     );
@@ -395,6 +405,16 @@ class S {
     return Intl.message(
       'Name',
       name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My awesome trip`
+  String get name_hint {
+    return Intl.message(
+      'My awesome trip',
+      name: 'name_hint',
       desc: '',
       args: [],
     );
@@ -430,11 +450,21 @@ class S {
     );
   }
 
-  /// `Add location`
-  String get add_location {
+  /// `Destination`
+  String get destination {
     return Intl.message(
-      'Add location',
-      name: 'add_location',
+      'Destination',
+      name: 'destination',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paris, France, Europe...`
+  String get destination_hint {
+    return Intl.message(
+      'Paris, France, Europe...',
+      name: 'destination_hint',
       desc: '',
       args: [],
     );
@@ -455,6 +485,16 @@ class S {
     return Intl.message(
       'Date',
       name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start date`
+  String get start_date {
+    return Intl.message(
+      'Start date',
+      name: 'start_date',
       desc: '',
       args: [],
     );

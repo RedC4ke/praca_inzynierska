@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:travelmate/domain/firestore/models/firestore_model.dart';
 
 part 'location.g.dart';

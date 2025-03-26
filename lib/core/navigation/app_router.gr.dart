@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -10,59 +11,10 @@
 part of 'app_router.dart';
 
 /// generated route for
-/// [AddDayPage]
-class AddDayRoute extends PageRouteInfo<AddDayRouteArgs> {
-  AddDayRoute({
-    required Trip trip,
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          AddDayRoute.name,
-          args: AddDayRouteArgs(
-            trip: trip,
-            key: key,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'AddDayRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final args = data.argsAs<AddDayRouteArgs>();
-      return AddDayPage(
-        trip: args.trip,
-        key: args.key,
-      );
-    },
-  );
-}
-
-class AddDayRouteArgs {
-  const AddDayRouteArgs({
-    required this.trip,
-    this.key,
-  });
-
-  final Trip trip;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'AddDayRouteArgs{trip: $trip, key: $key}';
-  }
-}
-
-/// generated route for
 /// [CreateTripPage]
 class CreateTripRoute extends PageRouteInfo<void> {
   const CreateTripRoute({List<PageRouteInfo>? children})
-      : super(
-          CreateTripRoute.name,
-          initialChildren: children,
-        );
+    : super(CreateTripRoute.name, initialChildren: children);
 
   static const String name = 'CreateTripRoute';
 
@@ -78,10 +30,7 @@ class CreateTripRoute extends PageRouteInfo<void> {
 /// [DashboardPage]
 class DashboardRoute extends PageRouteInfo<void> {
   const DashboardRoute({List<PageRouteInfo>? children})
-      : super(
-          DashboardRoute.name,
-          initialChildren: children,
-        );
+    : super(DashboardRoute.name, initialChildren: children);
 
   static const String name = 'DashboardRoute';
 
@@ -94,59 +43,10 @@ class DashboardRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [DayPage]
-class DayRoute extends PageRouteInfo<DayRouteArgs> {
-  DayRoute({
-    required TripDay tripDay,
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          DayRoute.name,
-          args: DayRouteArgs(
-            tripDay: tripDay,
-            key: key,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'DayRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final args = data.argsAs<DayRouteArgs>();
-      return DayPage(
-        tripDay: args.tripDay,
-        key: args.key,
-      );
-    },
-  );
-}
-
-class DayRouteArgs {
-  const DayRouteArgs({
-    required this.tripDay,
-    this.key,
-  });
-
-  final TripDay tripDay;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'DayRouteArgs{tripDay: $tripDay, key: $key}';
-  }
-}
-
-/// generated route for
 /// [DiscoverPage]
 class DiscoverRoute extends PageRouteInfo<void> {
   const DiscoverRoute({List<PageRouteInfo>? children})
-      : super(
-          DiscoverRoute.name,
-          initialChildren: children,
-        );
+    : super(DiscoverRoute.name, initialChildren: children);
 
   static const String name = 'DiscoverRoute';
 
@@ -162,10 +62,7 @@ class DiscoverRoute extends PageRouteInfo<void> {
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
-      : super(
-          HomeRoute.name,
-          initialChildren: children,
-        );
+    : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
@@ -181,10 +78,7 @@ class HomeRoute extends PageRouteInfo<void> {
 /// [ProfilePage]
 class ProfileRoute extends PageRouteInfo<void> {
   const ProfileRoute({List<PageRouteInfo>? children})
-      : super(
-          ProfileRoute.name,
-          initialChildren: children,
-        );
+    : super(ProfileRoute.name, initialChildren: children);
 
   static const String name = 'ProfileRoute';
 
@@ -200,10 +94,7 @@ class ProfileRoute extends PageRouteInfo<void> {
 /// [TimelinePage]
 class TimelineRoute extends PageRouteInfo<void> {
   const TimelineRoute({List<PageRouteInfo>? children})
-      : super(
-          TimelineRoute.name,
-          initialChildren: children,
-        );
+    : super(TimelineRoute.name, initialChildren: children);
 
   static const String name = 'TimelineRoute';
 
@@ -218,18 +109,12 @@ class TimelineRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [TripPage]
 class TripRoute extends PageRouteInfo<TripRouteArgs> {
-  TripRoute({
-    required Trip trip,
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          TripRoute.name,
-          args: TripRouteArgs(
-            trip: trip,
-            key: key,
-          ),
-          initialChildren: children,
-        );
+  TripRoute({required Trip trip, Key? key, List<PageRouteInfo>? children})
+    : super(
+        TripRoute.name,
+        args: TripRouteArgs(trip: trip, key: key),
+        initialChildren: children,
+      );
 
   static const String name = 'TripRoute';
 
@@ -237,19 +122,13 @@ class TripRoute extends PageRouteInfo<TripRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<TripRouteArgs>();
-      return TripPage(
-        trip: args.trip,
-        key: args.key,
-      );
+      return TripPage(trip: args.trip, key: args.key);
     },
   );
 }
 
 class TripRouteArgs {
-  const TripRouteArgs({
-    required this.trip,
-    this.key,
-  });
+  const TripRouteArgs({required this.trip, this.key});
 
   final Trip trip;
 

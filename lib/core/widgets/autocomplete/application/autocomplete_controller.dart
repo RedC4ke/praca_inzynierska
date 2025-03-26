@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:travelmate/application/base/async_state.dart';
-import 'package:travelmate/domain/autocomplete/autocomplete_repository.dart';
-import 'package:travelmate/domain/autocomplete/models/autocomplete_response.dart';
+import 'package:travelmate/domain/error/models/autocomplete_prediction.dart';
+import 'package:travelmate/domain/error/models/autocomplete_response.dart';
+import 'package:travelmate/domain/places/places_repository.dart';
 import 'package:uuid/uuid.dart';
 
 part 'autocomplete_controller.g.dart';
@@ -12,29 +13,46 @@ part 'autocomplete_controller.g.dart';
 class AutocompleteController extends _$AutocompleteController {
   @override
   AsyncState<AutocompleteResponse> build() {
-    return const AsyncState.initial();
+    return const Initial();
   }
 
-  final String _sessionToken = const Uuid().v4();
+  String _sessionToken = const Uuid().v4();
 
-  Future<AsyncState<AutocompleteResponse>> fetchAutocomplete(
+  String clearSessionToken() {
+    final oldToken = _sessionToken;
+    _sessionToken = const Uuid().v4();
+
+    return oldToken;
+  }
+
+  Future<List<AutocompletePrediction>> fetchAutocomplete(
     String query,
   ) async {
     if (query.isEmpty || query.length < 3) {
-      return state = const AsyncState.initial();
+      state = const Initial();
+
+      return [];
     }
 
     final response = await ref
-        .read(autocompleteRepositoryProvider)
+        .read(placesRepositoryProvider)
         .getAutocomplete(
           input: query,
           sessionToken: _sessionToken,
         )
         .run();
 
-    return state = response.fold(
-      AsyncState.error,
-      AsyncState.success,
+    return response.fold(
+      (l) {
+        state = Error(l);
+
+        return [];
+      },
+      (r) {
+        state = Success(r);
+
+        return r.suggestions;
+      },
     );
   }
 }

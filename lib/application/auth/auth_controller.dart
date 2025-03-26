@@ -10,7 +10,7 @@ class AuthController extends _$AuthController {
   @override
   LoadableState<User> build() {
     _init();
-    return const LoadableState<User>.initial();
+    return const Initial();
   }
 
   Future<void> _init() async {

@@ -7,18 +7,14 @@ import 'package:travelmate/core/theme/tm_text_theme.dart';
 abstract class TmTheme {
   static final ThemeData light = ThemeData(
     useMaterial3: true,
-    textTheme: TmTextTheme.theme.apply(
-      displayColor: TmColors.inkDark,
-      bodyColor: TmColors.inkDark,
-    ),
+    brightness: Brightness.light,
+    textTheme: TmTextTheme.theme.apply(),
     colorScheme: TmColorScheme.light,
     inputDecorationTheme: TmInputDecorationTheme.themeLight,
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: TmColors.primaryBase,
-      shape: CircleBorder(),
       sizeConstraints: BoxConstraints.tightFor(
-        height: 52,
-        width: 52,
+        height: 48,
+        width: 48,
       ),
       elevation: 0,
     ),
@@ -34,10 +30,14 @@ abstract class TmTheme {
     ),
     iconButtonTheme: IconButtonThemeData(
       style: IconButton.styleFrom(
-        foregroundColor: TmColors.primaryBase,
         padding: const EdgeInsets.all(12),
         shape: const CircleBorder(),
       ),
     ),
   );
+
+  static ThemeData get dark => light.copyWith(
+        colorScheme: TmColorScheme.dark,
+        brightness: Brightness.dark,
+      );
 }

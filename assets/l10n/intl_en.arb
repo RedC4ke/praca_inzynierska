@@ -1,5 +1,6 @@
 {
     "@@locale": "en",
+    "app_name": "TravelMate",
     "@_HOME": {},
     "your_trips": "Your trips",
     "no_trips": "You have no trips yet.",
@@ -37,15 +38,18 @@
     "err_wrong_number": "Invalid phone number",
     "err_location_denied_forever": "Location permissions not granted. To grant them, go to app settings.",
     "@_CREATE_TRIP": {},
-    "create_trip": "Plan a new trip",
+    "create_trip_title": "Create a new trip!",
     "name": "Name",
+    "name_hint": "My awesome trip",
     "description": "Description",
     "create": "Create",
     "add_cover_image": "Add cover image",
-    "add_location": "Add location",
+    "destination": "Destination",
+    "destination_hint": "Paris, France, Europe...",
     "@_TRIP": {},
     "no_days": "This trip has no days yet.",
     "@_ADD_DAY": {},
     "date": "Date",
+    "start_date": "Start date",
     "add_day": "Add a new trip day"
 }

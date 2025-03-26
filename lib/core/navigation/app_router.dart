@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:travelmate/domain/trip/models/trip.dart';
-import 'package:travelmate/domain/trip/models/trip_day.dart';
 import 'package:travelmate/features/dashboard/dashboard_page.dart';
-import 'package:travelmate/features/day/add_day_page.dart';
-import 'package:travelmate/features/day/day_page.dart';
 import 'package:travelmate/features/discover/discover_page.dart';
 import 'package:travelmate/features/home/home_page.dart';
 import 'package:travelmate/features/profile/profile_page.dart';
@@ -34,6 +31,5 @@ class AppRouter extends RootStackRouter {
         ),
         AutoRoute(page: CreateTripRoute.page),
         AutoRoute(page: TripRoute.page),
-        AutoRoute(page: AddDayRoute.page),
       ];
 }

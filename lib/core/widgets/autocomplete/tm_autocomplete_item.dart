@@ -1,45 +1,80 @@
 import 'package:flutter/material.dart';
+import 'package:travelmate/core/theme/tm_color_scheme.dart';
 import 'package:travelmate/core/utils/extensions.dart';
-import 'package:travelmate/domain/autocomplete/models/autocomplete_prediction.dart';
-import 'package:travelmate/domain/autocomplete/models/autocomplete_substring.dart';
+import 'package:travelmate/domain/error/models/autocomplete_match.dart';
+import 'package:travelmate/domain/error/models/autocomplete_prediction.dart';
 
 class TmAutocompleteItem extends StatelessWidget {
   const TmAutocompleteItem({
     required this.prediction,
-    required this.onSelected,
+    this.isLoading,
+    this.onTap,
     super.key,
   });
 
   final AutocompletePrediction prediction;
-  final void Function(AutocompletePrediction) onSelected;
+  final VoidCallback? onTap;
+  final bool? isLoading;
 
   @override
   Widget build(BuildContext context) {
-    final structured = prediction.structuredFormatting;
+    final structured = prediction.placePrediction.structuredFormat;
 
-    return InkWell(
-      onTap: () => onSelected(prediction),
-      child: Container(
-        color: context.colorScheme.surface,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _MatchedSubstringText(
-              text: structured?.mainText ?? prediction.description,
-              matchedSubstrings: structured?.mainTextMatchedSubstrings ?? [],
-              style: context.textTheme.bodyMedium,
-            ),
-            if (structured?.secondaryText != null) ...[
-              const SizedBox(height: 4),
-              _MatchedSubstringText(
-                text: structured?.secondaryText ?? '',
-                matchedSubstrings:
-                    structured?.secondaryTextMatchedSubstrings ?? [],
-                style: context.textTheme.bodySmall,
-              ),
-            ],
-          ],
+    return Material(
+      type: MaterialType.transparency,
+      shadowColor: TmColorScheme.customColor1.value.withValues(alpha: 0.2),
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            vertical: 12,
+            horizontal: 12,
+          ),
+          child: isLoading ?? false
+              ? Center(
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      context.colorScheme.secondary,
+                    ),
+                  ),
+                )
+              : Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          _MatchedSubstringText(
+                            text: structured.mainText.text,
+                            matchedSubstrings: const [],
+                            style: context.textTheme.bodyMedium,
+                          ),
+                          if (structured.secondaryText != null) ...[
+                            const SizedBox(height: 4),
+                            _MatchedSubstringText(
+                              text: structured.secondaryText?.text ?? '',
+                              matchedSubstrings: const [],
+                              style: context.textTheme.labelSmall,
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          ' ',
+                          style: context.textTheme.labelMedium,
+                        ),
+                        Text(
+                          ' ',
+                          style: context.textTheme.labelSmall,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
         ),
       ),
     );
@@ -54,7 +89,7 @@ class _MatchedSubstringText extends StatelessWidget {
   });
 
   final String text;
-  final List<AutocompleteSubstring> matchedSubstrings;
+  final List<AutocompleteMatch> matchedSubstrings;
   final TextStyle? style;
 
   @override
@@ -63,15 +98,13 @@ class _MatchedSubstringText extends StatelessWidget {
 
     for (var i = 0; i < matchedSubstrings.length; i++) {
       final noHighlight = text.substring(
-        i > 0
-            ? matchedSubstrings[i - 1].offset + matchedSubstrings[i - 1].length
-            : 0,
-        matchedSubstrings[i].offset,
+        i > 0 ? matchedSubstrings[i - 1].endOffset : 0,
+        matchedSubstrings[i].startOffset,
       );
 
       final nextHighlight = text.substring(
-        matchedSubstrings[i].offset,
-        matchedSubstrings[i].offset + matchedSubstrings[i].length,
+        matchedSubstrings[i].startOffset ?? 0,
+        matchedSubstrings[i].endOffset,
       );
 
       shouldHighlight
@@ -81,7 +114,7 @@ class _MatchedSubstringText extends StatelessWidget {
 
     if (matchedSubstrings.isNotEmpty) {
       final lastNoHighlight = text.substring(
-        matchedSubstrings.last.offset + matchedSubstrings.last.length,
+        matchedSubstrings.last.endOffset,
       );
 
       shouldHighlight.add(MapEntry(lastNoHighlight, false));
@@ -90,6 +123,8 @@ class _MatchedSubstringText extends StatelessWidget {
     }
 
     return Text.rich(
+      overflow: TextOverflow.ellipsis,
+      maxLines: 1,
       TextSpan(
         children: [
           for (final entry in shouldHighlight)
